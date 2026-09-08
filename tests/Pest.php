@@ -1,3 +1,5 @@
 <?php
 
-uses(Jeffersongoncalves\Hubspot\Tests\TestCase::class)->in('Feature', 'Unit');
+use JeffersonGoncalves\Hubspot\Tests\TestCase;
+
+uses(TestCase::class)->in('Feature', 'Unit');

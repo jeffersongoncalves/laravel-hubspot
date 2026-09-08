@@ -1,8 +1,8 @@
 <?php
 
-namespace Jeffersongoncalves\Hubspot\Tests;
+namespace JeffersonGoncalves\Hubspot\Tests;
 
-use Jeffersongoncalves\Hubspot\HubspotServiceProvider;
+use JeffersonGoncalves\Hubspot\HubspotServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 
 class TestCase extends Orchestra
@@ -12,5 +12,13 @@ class TestCase extends Orchestra
         return [
             HubspotServiceProvider::class,
         ];
+    }
+
+    protected function getEnvironmentSetUp($app): void
+    {
+        $app['config']->set('hubspot.token', 'test-token');
+        $app['config']->set('hubspot.base_url', 'https://api.hubapi.com');
+        $app['config']->set('hubspot.retry_times', 2);
+        $app['config']->set('hubspot.retry_delay', 0);
     }
 }
